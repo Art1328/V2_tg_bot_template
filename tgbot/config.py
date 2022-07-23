@@ -14,7 +14,7 @@ class DbConfig:
 @dataclass
 # создаю дата-класс
 class TgBot:
-    # И
+    # Импо
     token: str
     admin_ids: list[int]
     use_redis: bool
