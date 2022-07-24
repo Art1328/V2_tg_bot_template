@@ -14,7 +14,7 @@ from tgbot.middlewares.db import DbMiddleware
 
 logger = logging.getLogger(__name__)
 
-#
+
 def register_all_middlewares(dp):
     dp.setup_middleware(DbMiddleware())
 
