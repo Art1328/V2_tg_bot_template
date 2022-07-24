@@ -5,6 +5,7 @@ from environs import Env
 
 @dataclass
 class DbConfig:
+    # Этот dataclass создан для базы данных
     host: str
     password: str
     user: str
@@ -12,9 +13,9 @@ class DbConfig:
 
 
 @dataclass
-# создаю дата-класс
 class TgBot:
-    # Импо
+    # class TgBot будет принимать в себя три параметра
+    # Эти данные были получены с файла .env
     token: str
     admin_ids: list[int]
     use_redis: bool
@@ -22,16 +23,18 @@ class TgBot:
 
 @dataclass
 class Miscellaneous:
-    other_params: str = None
+    # Этот dataclass создан для всего остального что не подходит в другие dataclass
+    other_params: str = None # Стоит заглушка
 
 
 @dataclass
 class Config:
+    # Этот dataclass создан для группировки остальных dataclass
     tg_bot: TgBot
     db: DbConfig
     misc: Miscellaneous
 
-
+# Специальная функция которая выгружает данные с class Config
 def load_config(path: str = None):
     env = Env()
     env.read_env(path)
